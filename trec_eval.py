@@ -61,13 +61,19 @@ def get_qrels_file(name):
         'robust04': 'beir-v1.0.0-robust04-test',
         'signal': 'beir-v1.0.0-signal1m-test',
     }
-    name = THE_TOPICS.get(name, '')
-    name = name.replace('-test', '.test')
-    name = 'data/label_file/qrels.' + name + '.txt'  # try to use cache
-    if not os.path.exists():
+    print(name)
+    # Retrieve the correct topic name
+    # name = THE_TOPICS.get(name, '')
+
+    # Ensure that no extra dots are inserted
+    fname = f"qrels.{name}.txt"  # Correct path format
+
+    # Check if the file exists, and return if it does, otherwise attempt to download
+    if not os.path.exists(f"data/label_file/{fname}"):
         from pyserini.search import get_qrels_file
-        return get_qrels_file(name)  # download from pyserini
-    return name
+        return get_qrels_file(name)  # Download from pyserini if not found
+
+    return f"data/label_file/{fname}"
 
 
 def remove_duplicate(response):
