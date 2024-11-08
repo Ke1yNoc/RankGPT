@@ -181,8 +181,8 @@ def eval_on_benchmark(args, model=None, tokenizer=None):
         'quora': 'beir-v1.0.0-quora.flat',
         'dbpedia': 'beir-v1.0.0-dbpedia-entity.flat',
         'fever': 'beir-v1.0.0-fever-flat',
-        'robust04': 'beir-v1.0.0-robust04-flat',
-        'signal': 'beir-v1.0.0-signal1m-flat',
+        'robust04': 'beir-v1.0.0-robust04.flat',
+        'signal': 'beir-v1.0.0-signal1m.flat',
     }
     THE_TOPICS = {
         'dl19': 'dl19-passage',
